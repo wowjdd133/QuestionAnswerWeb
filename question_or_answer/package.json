@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "@tinymce/tinymce-react": "^3.3.2",
     "@zeit/next-sass": "^1.0.1",
     "mobx": "^5.13.0",
     "mobx-react": "^6.1.3",

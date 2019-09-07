@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { observer, inject } from 'mobx-react'
 import { useRouter } from 'next/router';
+import Answer from './components/answer/Answer';
 
 const answer = ({store}) => {
   const {questionStore, answerStore} = store;
@@ -18,8 +19,13 @@ const answer = ({store}) => {
 
   return (
     <>
-      <h1>{question.title}</h1>
-      <p>{question.description}</p>
+      <div className="content-question">
+        <h1>{question.title}</h1>
+        <p>{question.description}</p>
+      </div>
+      <div className="content-answer">
+        <Answer/>
+      </div>
     </>
   );
 };
