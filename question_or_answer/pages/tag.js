@@ -1,4 +1,4 @@
-import Tag from "../components/ask/Tag";
+import Tag from "./components/ask/Tag";
 import React, {Fragment} from 'react';
 
 const TagPage = () => (

@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { connect } from 'mobx-react';
-import Layout from "../components/Layout";
+import Layout from "./components/Layout";
 import stores from '../stores';
 import { Provider } from 'mobx-react';
 

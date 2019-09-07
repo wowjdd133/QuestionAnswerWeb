@@ -1,5 +1,5 @@
 import React , {Fragment} from 'react';
-import Description from '../components/ask/Description';
+import Description from './components/ask/Description';
 import {inject, observer} from 'mobx-react';
 
 const DescriptionPage = ({store}) => {

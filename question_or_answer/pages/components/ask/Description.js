@@ -1,12 +1,15 @@
-import React, {useState} from 'react';
+import React, {useState, Fragment} from 'react';
 import Router from 'next/router';
 
 const Description = ({ store }) => {
   const [description, setDescription] = useState("");
 
+  console.log(store.questionStore.questionIdx+"엉?");
+
   const putQuestion = () => {
-    store.question.putQuestion(
+    store.questionStore.putQuestion(
       {
+        idx: store.questionStore.questionIdx, 
         tag: localStorage.getItem('tag'),
         title: localStorage.getItem('title'),
         description: description,
@@ -14,6 +17,7 @@ const Description = ({ store }) => {
         answers: 0,
       }
     )
+    store.questionStore.questionIdx++;
   }
 
   const handleChange = e => {
@@ -30,13 +34,13 @@ const Description = ({ store }) => {
   }
 
   return (
-    <div>
+    <Fragment>
       <textarea onChange = {handleChange} className= "description-textarea" style={{ width: 300, height: 400}}>
 
       </textarea>
       <button onClick={handleBack}>Back</button>
       <button onClick={handleDone}>Done</button>
-    </div>
+    </Fragment>
   );
 };
 

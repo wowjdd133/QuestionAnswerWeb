@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 import Router from 'next/Router';
-import QuestionList from '../components/question/QuestionList';
+import QuestionList from './components/question/QuestionList';
 
 const Index = () => {
   

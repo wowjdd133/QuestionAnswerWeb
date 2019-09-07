@@ -1,19 +1,27 @@
 import React, {useState} from 'react';
-import from './QuestionItem.scss';
+import './QuestionItem.scss';
+import Router from 'next/router';
+import { observer, inject } from 'mobx-react';
 
-const QuestionItem = (question) => {
-
+const QuestionItem = ({ question}) => {
   const {
-    title, tag, answers, view
-  } = question.question;
+    title, tag, answers, view, idx
+  } = question;
+
+  console.log(idx+"엌");
 
   const tagArray = tag.split(',');
-
-  console.log(tagArray);
 
   const tagList = tagArray.map((tag, i) => {
     return (<div key={i} className="tags"><span>{tag}</span></div>)
   })
+
+  const handleMove = () => {
+    Router.push({
+      pathname:'/answer',
+      query: { idx: idx },
+    });
+  }
 
   return (
     <div className="questionContent">
@@ -33,14 +41,21 @@ const QuestionItem = (question) => {
       </div>
 
       <div className="content">
-        <a>title:</a><h2>{title}</h2>
+        <h3 onClick={handleMove}>{title}</h3>
         {tagList}
+        <h3>{question.idx}</h3>
       </div>
 
       <style jsx>
         {` 
         .addit div {
           text-align: center;
+        }
+
+        .content h3{
+          font-weight: 600;
+          cursor: pointer;
+          color: #005999;
         }
 
         .Additional .addit {
@@ -93,4 +108,4 @@ const QuestionItem = (question) => {
   );
 };
 
-export default QuestionItem;
+export default inject('store')(observer(QuestionItem));

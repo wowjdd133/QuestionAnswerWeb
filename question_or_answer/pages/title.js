@@ -1,5 +1,5 @@
 import React , {Fragment} from 'react';
-import Title from '../components/ask/Title';
+import Title from './components/ask/Title';
 
 const TitlePage = () => {
   return (

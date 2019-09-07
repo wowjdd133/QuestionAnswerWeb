@@ -1,7 +1,9 @@
 import QuestionStore from './questionStore';
+import AnswerStore from './answerStore';
 
 const stores = {
-  question: new QuestionStore(),
+  questionStore: new QuestionStore(),
+  answerStore: new AnswerStore()
 };
 
 export default stores;
