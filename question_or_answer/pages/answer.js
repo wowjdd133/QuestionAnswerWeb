@@ -7,10 +7,10 @@ const answer = ({store}) => {
   const {questionStore, answerStore} = store;
   const router = useRouter();
   let [question, setQuestion] = useState({});
+  let {questionIdx} = router.query;
+  questionIdx = parseInt(questionIdx, 10);
 
   useEffect (() =>{//router.query is string , Need to parseInt
-    let {questionIdx} = router.query;
-    questionIdx = parseInt(questionIdx, 10);
     const question = questionStore.findQuestion(questionIdx);
     setQuestion(question);
   }, []);
@@ -22,7 +22,7 @@ const answer = ({store}) => {
         <p>{question.description}</p>
       </div>
       <div className="content-answer">
-        <Answer idx={0}/>
+        <Answer idx={questionIdx}/>
       </div>
     </>
   );

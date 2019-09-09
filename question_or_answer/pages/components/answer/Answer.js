@@ -1,11 +1,15 @@
-import React, {useState, Fragment} from 'react';
+import React, {useState} from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 import {inject, observer} from 'mobx-react';
+import AnswerItem from './AnswerItem';
 
 const Answer = ({store,idx}) => {
+  const {answerStore} = store;
   const [answer, setAnswer] = useState("");
-  const {questionStore, answerStore} = store;
-  console.log('idx: '+idx);
+  
+  const answerList = answerStore.answerList.map((answer) => {
+    return <AnswerItem key={answer.idx} answer={answer}/>
+  });
 
   const handleEditorChange = (e) => {
     setAnswer(e.target.getContent());
@@ -13,12 +17,16 @@ const Answer = ({store,idx}) => {
   }
 
   const handleAnswer = () => {
+    console.log(idx);
     answerStore.setAnswer(answer,idx);
-    console.log(answerStore.answer);
+    answerStore.getAnswer(idx);
   }
 
   return (
-    <Fragment>
+    <>
+      <div className="answer-content">
+        {answerList}
+      </div>
       <Editor
         init={{
           plugins: 'link image code',
@@ -33,7 +41,7 @@ const Answer = ({store,idx}) => {
       </div>
       <button onClick={handleAnswer}>Post Your Answer</button>
       
-    </Fragment>
+    </>
   );
 };
 
