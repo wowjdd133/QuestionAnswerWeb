@@ -17,7 +17,6 @@ const Description = ({ store }) => {
         answers: 0,
       }
     )
-    store.questionStore.questionIdx++;
   }
 
   const handleChange = e => {

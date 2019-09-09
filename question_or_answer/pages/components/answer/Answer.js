@@ -2,8 +2,10 @@ import React, {useState, Fragment} from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 import {inject, observer} from 'mobx-react';
 
-const Answer = () => {
+const Answer = ({store,idx}) => {
   const [answer, setAnswer] = useState("");
+  const {questionStore, answerStore} = store;
+  console.log('idx: '+idx);
 
   const handleEditorChange = (e) => {
     setAnswer(e.target.getContent());
@@ -11,7 +13,8 @@ const Answer = () => {
   }
 
   const handleAnswer = () => {
-    //TODO
+    answerStore.setAnswer(answer,idx);
+    console.log(answerStore.answer);
   }
 
   return (
@@ -23,12 +26,12 @@ const Answer = () => {
         }}
         onChange={handleEditorChange}>
       </Editor>
-      <div className="editor-content">
+      <div className="answer-content">
         <h2>Your Answer</h2>
         <div dangerouslySetInnerHTML={{__html: answer}}>
         </div>
       </div>
-      <button onClick={handleAnswer}></button>
+      <button onClick={handleAnswer}>Post Your Answer</button>
       
     </Fragment>
   );

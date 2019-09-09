@@ -3,12 +3,10 @@ import './QuestionItem.scss';
 import Router from 'next/router';
 import { observer, inject } from 'mobx-react';
 
-const QuestionItem = ({ question}) => {
+const QuestionItem = ({ question }) => {
   const {
     title, tag, answers, view, idx
   } = question;
-
-  console.log(idx+"엌");
 
   const tagArray = tag.split(',');
 
@@ -19,13 +17,13 @@ const QuestionItem = ({ question}) => {
   const handleMove = () => {
     Router.push({
       pathname:'/answer',
-      query: { idx: idx },
+      query: { questionIdx: idx },
     });
   }
 
   return (
     <div className="questionContent">
-      <div className="Additional">
+      <div className="Additional" onClick={handleMove}>
         <div className="addit">
           <div>
             <span>{answers}</span>

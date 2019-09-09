@@ -7,21 +7,21 @@ class QuestionStore {
   @action
   putQuestion = (question) => {
     this.questions.push(question);//this.questions.question.tag로 해야하는 불편함이 있음.
-    this.idx++;
+    this.questionIdx++;
   }
 
-  findQuestion = (idx) => {
+  findQuestion = (questionIdx) => {
     let question = {};
     this.questions.forEach(q=> {
-      if (q.idx === idx) {
+      if (q.idx === questionIdx) {
         question =  q;
       }
     });
 
-    console.log(question);
-
     return question;
   }
+
+  
 }
 
 export default QuestionStore;

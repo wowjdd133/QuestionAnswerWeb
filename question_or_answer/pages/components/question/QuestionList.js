@@ -3,8 +3,7 @@ import {inject, observer} from 'mobx-react';
 import QuestionItem from './QuestionItem';
 
 const QuestionList = ({store}) => {
-  const QuestionList = store.questionStore.questions.map((question, i) =>{
-    console.log(question.idx);
+  const QuestionList = store.questionStore.questions.map((question) =>{
     return (<QuestionItem key={question.idx} question={question}/>);
   });
   return (

@@ -6,16 +6,14 @@ import Answer from './components/answer/Answer';
 const answer = ({store}) => {
   const {questionStore, answerStore} = store;
   const router = useRouter();
-  let { idx } = router.query;
   let [question, setQuestion] = useState({});
 
-  useEffect(() =>{
-    idx = parseInt(idx, 10);
-    setQuestion(questionStore.findQuestion(idx));
-    console.log(question);
-  }, [question]);
-
-  console.log(question);
+  useEffect (() =>{//router.query is string , Need to parseInt
+    let {questionIdx} = router.query;
+    questionIdx = parseInt(questionIdx, 10);
+    const question = questionStore.findQuestion(questionIdx);
+    setQuestion(question);
+  }, []);
 
   return (
     <>
@@ -24,7 +22,7 @@ const answer = ({store}) => {
         <p>{question.description}</p>
       </div>
       <div className="content-answer">
-        <Answer/>
+        <Answer idx={0}/>
       </div>
     </>
   );
