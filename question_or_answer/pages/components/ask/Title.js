@@ -11,7 +11,7 @@ const Title = () => {
   
   const handleNext = () => {
     handleSetItem();
-    Router.push('/description');
+    Router.push('/ask/description');
   }
 
   const handleBack = () => {

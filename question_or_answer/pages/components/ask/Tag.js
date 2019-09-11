@@ -11,7 +11,7 @@ const Tag = () => {
   
   const handleNext = () => {
     handleSetItem();
-    Router.push('/title');
+    Router.push('/ask/title');
   }
 
   const handleSetItem = () => {
