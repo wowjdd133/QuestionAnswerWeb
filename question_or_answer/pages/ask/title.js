@@ -6,8 +6,8 @@ import './ask.scss';
 const TitlePage = () => {
   return (
     <Fragment>
-      <div className="content">
-        <div className="grid-center">
+      <div className="grid-content">
+        <div className="grid-content-center">
           <h1>What's your question title?</h1>
           <p>Your title helps people quickly understand what your question is about so they can answer it.</p>
           <p className="input-title">Title</p>

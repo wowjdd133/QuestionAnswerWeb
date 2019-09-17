@@ -23,10 +23,15 @@ const Title = () => {
   }
 
   return (
-    <div>
-      <input placeholder="what's your question?"type="text" onChange={handleChange}/>
-      <button onClick={handleBack}>Back</button>
-      <button onClick={handleNext}>Next</button>
+    <div className="mainbar">
+      <div className="form">
+        <label className="mb8">Title</label>
+        <input className="mb32 input-size" placeholder="what's your question?"type="text" onChange={handleChange}/>
+      </div>
+      <div className="dis-grid jc-end z-back">
+        <button onClick={handleBack}>Back</button>
+        <button onClick={handleNext}>Next</button>
+      </div>
     </div>
   );
 };

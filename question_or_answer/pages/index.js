@@ -5,14 +5,18 @@ import QuestionList from './components/question/QuestionList';
 const Index = () => {
   
   const handleNext = () => {
-    Router.push('/tag');
+    Router.push('/ask/tag');
   }
 
   return (
     <Fragment>
-      <button onClick={handleNext}>Ask Question</button>
-      <h1>재미있는 코딩 놀이</h1>
-      <QuestionList/>
+      <div className="content column">
+        <div className="grid">
+          <h1 className="grid-title">재미있는 코딩 놀이</h1>
+          <button className="grid-button" onClick={handleNext}>Ask Question</button>
+        </div>
+        <QuestionList/>
+      </div>
     </Fragment>
   );
 };

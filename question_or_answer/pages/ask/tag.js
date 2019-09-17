@@ -5,10 +5,10 @@ import './ask.scss';
 
 const TagPage = () => (
   <Fragment>
-      <div className="content">
-        <div className="grid-center">
-          <h1>What type of question do you have?</h1>
-          <p>We’ll help you find the best way to get your answer</p>
+      <div className="grid-content">
+        <div className="grid-content-center">
+          <h1 className="fs-headline1 mb8">What languages, technologies, and/or frameworks is your question about?</h1>
+          <p className="fs-body3 mb32">Tags help the right people find and answer your question.</p>
           <Tag />
         </div>
       </div>

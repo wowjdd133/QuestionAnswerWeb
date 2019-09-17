@@ -7,8 +7,8 @@ const Answer = ({store,idx}) => {
   const {answerStore} = store;
   const [answer, setAnswer] = useState("");
   
-  const answerList = answerStore.answerList.map((answer) => {
-    return <AnswerItem key={answer.idx} answer={answer}/>
+  const answerList = answerStore.answerList.map((answer, i) => {
+    return <AnswerItem key={i} answer={answer}/>
   });
 
   const handleEditorChange = (e) => {
@@ -34,7 +34,7 @@ const Answer = ({store,idx}) => {
         }}
         onChange={handleEditorChange}>
       </Editor>
-      <div className="answer-content">
+      <div className="tag">
         <h2>Your Answer</h2>
         <div dangerouslySetInnerHTML={{__html: answer}}>
         </div>

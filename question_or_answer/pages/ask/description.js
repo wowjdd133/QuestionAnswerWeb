@@ -7,10 +7,10 @@ import './ask.scss';
 const DescriptionPage = ({store}) => {
   return (
     <Fragment>
-      <div className="content">
-        <div className="grid-center">
-          <h1>Tell us more about your question</h1>
-          <p>description</p>
+      <div className="grid-content">
+        <div className="grid-content-center">
+          <h1 className="fs-headline1 mb8">Tell us more about your question</h1>
+          <p className="fs-body3 mb32">Your description gives people the information they need to help you answer your question.</p>
           <Description store={store} />
         </div>
       </div>
